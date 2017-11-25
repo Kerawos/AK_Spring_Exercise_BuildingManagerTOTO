@@ -1,14 +1,15 @@
-package pl.akademiakodu.AK_Spring_Exercise_BuildingManager.controllers;
+package pl.akademiakodu.AK_Spring_Exercise_BuildingManagerTOTO.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import pl.akademiakodu.AK_Spring_Exercise_BuildingManager.models.Building;
-import pl.akademiakodu.AK_Spring_Exercise_BuildingManager.models.BuildingManager;
-import pl.akademiakodu.AK_Spring_Exercise_BuildingManager.models.UserInput;
-import pl.akademiakodu.AK_Spring_Exercise_BuildingManager.models.services.Converter;
+import pl.akademiakodu.AK_Spring_Exercise_BuildingManagerTOTO.models.Building;
+import pl.akademiakodu.AK_Spring_Exercise_BuildingManagerTOTO.models.BuildingManager;
+import pl.akademiakodu.AK_Spring_Exercise_BuildingManagerTOTO.models.UserInput;
+import pl.akademiakodu.AK_Spring_Exercise_BuildingManagerTOTO.models.services.Converter;
+
 
 @Controller
 public class BuildingCalculationController {
