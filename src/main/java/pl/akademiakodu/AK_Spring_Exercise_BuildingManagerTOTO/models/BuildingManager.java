@@ -123,8 +123,8 @@ public class BuildingManager {
         int potentialToiletsInBuilding = 0;
         int potentialRoomsInBuilding = 0;
         //todo implements correct way on set counted toilets and rooms, remember that they are very dependent each other.
-        building.setToilets(potentialToiletsInBuilding);
-        building.setRooms(potentialRoomsInBuilding);
+        building.setToilets(potentialToiletsInBuilding); //  needsToilets()
+        building.setRooms(potentialRoomsInBuilding); // needsRooms()
 
         building.setPotentialWorkers(potentialWorkers(building.getRooms()));
         building.setPotentialBuildingCost(new CostBuilding().calcTotalCostOfBuilding(width, length, floors, undergroundFloors));
