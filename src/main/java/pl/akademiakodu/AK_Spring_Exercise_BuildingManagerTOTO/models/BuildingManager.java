@@ -1,5 +1,8 @@
 package pl.akademiakodu.AK_Spring_Exercise_BuildingManagerTOTO.models;
 
+import org.springframework.stereotype.Service;
+
+@Service
 public class BuildingManager {
 
     private int installationSpace = 4;

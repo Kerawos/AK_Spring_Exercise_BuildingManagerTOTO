@@ -1,5 +1,8 @@
 package pl.akademiakodu.AK_Spring_Exercise_BuildingManagerTOTO.models;
 
+import org.springframework.stereotype.Service;
+
+@Service
 public class CostExploration {
 
     private double taxPerMeterArea = 0.5;

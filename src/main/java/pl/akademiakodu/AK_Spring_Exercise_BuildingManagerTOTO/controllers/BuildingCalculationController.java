@@ -1,5 +1,6 @@
 package pl.akademiakodu.AK_Spring_Exercise_BuildingManagerTOTO.controllers;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,8 +15,11 @@ import pl.akademiakodu.AK_Spring_Exercise_BuildingManagerTOTO.models.services.Co
 @Controller
 public class BuildingCalculationController {
 
-    private BuildingManager buildingManager = new BuildingManager();
-    private Converter converter = new Converter();
+    @Autowired
+    private BuildingManager buildingManager;
+
+    @Autowired
+    private Converter converter;
 
     @GetMapping("/build") public String buildingGet(Model model){
         model.addAttribute("userInput", new UserInput());

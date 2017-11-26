@@ -1,7 +1,10 @@
 package pl.akademiakodu.AK_Spring_Exercise_BuildingManagerTOTO.models.services;
 
+import org.springframework.stereotype.Service;
+
 import java.math.BigInteger;
 
+@Service
 public class Converter {
 
     public int stringIntoInteger(String str){

@@ -1,7 +1,10 @@
 package pl.akademiakodu.AK_Spring_Exercise_BuildingManagerTOTO.models;
 
+import org.springframework.stereotype.Service;
+
 import java.math.BigInteger;
 
+@Service
 public class CostBuilding {
 
     private double areaMinimumIndicator = 1.2;
