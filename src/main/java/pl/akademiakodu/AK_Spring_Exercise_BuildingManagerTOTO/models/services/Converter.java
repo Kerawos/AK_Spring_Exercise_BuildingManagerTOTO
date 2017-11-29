@@ -1,12 +1,19 @@
 package pl.akademiakodu.AK_Spring_Exercise_BuildingManagerTOTO.models.services;
 
 import org.springframework.stereotype.Service;
-
 import java.math.BigInteger;
 
+/**
+ * this service is used to transform user input as string into requested variables
+ */
 @Service
 public class Converter {
 
+    /**
+     *
+     * @param str takes any strings value
+     * @return result as required int if possible
+     */
     public int stringIntoInteger(String str){
         int result;
         try {
@@ -17,6 +24,11 @@ public class Converter {
         return result;
     }
 
+    /**
+     *
+     * @param str takes any strings value
+     * @return result as required BigInteger if possible
+     */
     public BigInteger stringIntoBigInteger(String str){
         BigInteger result;
         try {

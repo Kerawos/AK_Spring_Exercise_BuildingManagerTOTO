@@ -2,9 +2,15 @@ package pl.akademiakodu.AK_Spring_Exercise_BuildingManagerTOTO.models;
 
 import org.springframework.stereotype.Service;
 
+/**
+ * to calculate cost of later exploration of building.
+ */
 @Service
 public class CostExploration {
 
+    /**
+     * exploration cost variable holders, example of real costs specified in specific period of time.
+     */
     private double taxPerMeterArea = 0.5;
     private int chargesMonthlyPerToilet = 240;
     private int chargesMonthlyPerElevator = 1872;
@@ -14,6 +20,13 @@ public class CostExploration {
     private double chargesMonthlyPowerConsumptionPerMeterArea = 0.2;
     private int chargesMonthlyGastroPerWorker = -65;
 
+    /**
+     * @param totalToilets as a part of noticeable building cost
+     * @param totalElevators as a part of noticeable building cost
+     * @param totalBuildingArea one of most important exploration cost, key value
+     * @param totalWorkers one of most important exploration cost, key value
+     * @return combine total cost of every minor calculations
+     */
     public int calcTotalChargesMonthly(int totalToilets, int totalElevators, int totalBuildingArea, int totalWorkers){
         int totalChargesMonthly = 0;
         totalChargesMonthly+=calcTaxPerMeterArea(totalBuildingArea);
@@ -27,6 +40,10 @@ public class CostExploration {
         return totalChargesMonthly;
     }
 
+    /**
+     * @param totalBuildingArea given square meter space of the building
+     * @return cost of potential tax result of building area
+     */
     public int calcTaxPerMeterArea(int totalBuildingArea){
         if (totalBuildingArea<1){
             throw new IllegalArgumentException("Arguments have to be greater than 0!");
@@ -34,6 +51,10 @@ public class CostExploration {
         return (int)(totalBuildingArea * getTaxPerMeterArea());
     }
 
+    /**
+     * @param toilets given toilets in the building
+     * @return cost of potential using area
+     */
     public int calcChargesMonthlyPerToilet(int toilets){
         if (toilets<1){
             throw new IllegalArgumentException("Arguments have to be greater than 0!");
@@ -41,6 +62,10 @@ public class CostExploration {
         return toilets * getChargesMonthlyPerToilet();
     }
 
+    /**
+     * @param elevators given elevators in the building
+     * @return cost of potential using area
+     */
     public int calcChargesMonthlyPerElevator(int elevators){
         if (elevators<0){
             throw new IllegalArgumentException("Arguments have to be greater than 0!");
@@ -48,6 +73,10 @@ public class CostExploration {
         return elevators==0 ? 0 : elevators * getChargesMonthlyPerElevator();
     }
 
+    /**
+     * @param totalBuildingArea given square meter space of the building
+     * @return cost of potential using area
+     */
     public int calcChargesMonthlyPerAreaMeter(int totalBuildingArea){
         if (totalBuildingArea<1){
             throw new IllegalArgumentException("Arguments have to be greater than 0!");
@@ -55,6 +84,10 @@ public class CostExploration {
         return (int)(totalBuildingArea * getChargesMonthlyPerAreaMeter());
     }
 
+    /**
+     * @param totalBuildingArea given square meter space of the building
+     * @return cost of potential media
+     */
     public int calcChargesMonthlyMedia(int totalBuildingArea){
         if (totalBuildingArea<1){
             throw new IllegalArgumentException("Arguments have to be greater than 0!");
@@ -62,6 +95,10 @@ public class CostExploration {
         return (int)(totalBuildingArea * getChargesMonthlyMediaPerAreaMeter());
     }
 
+    /**
+     * @param totalWorkers given workers, working in the building
+     * @return cost of potential power consumption provided by a all workers
+     */
     public int calcChargesMonthlyPowerConsumptionPerWorker(int totalWorkers){
         if (totalWorkers<1){
             throw new IllegalArgumentException("Arguments have to be greater than 0!");
@@ -69,6 +106,10 @@ public class CostExploration {
         return totalWorkers * getChargesMonthlyPowerConsumptionPerWorker();
     }
 
+    /**
+     * @param totalBuildingArea given square meter space of the building
+     * @return cost of potential power consumption provided by building area
+     */
     public int calcChargesMonthlyPowerConsumptionPerMeterArea(int totalBuildingArea){
         if (totalBuildingArea<1){
             throw new IllegalArgumentException("Arguments have to be greater than 0!");
@@ -76,6 +117,10 @@ public class CostExploration {
         return (int)(totalBuildingArea * getChargesMonthlyPowerConsumptionPerMeterArea());
     }
 
+    /**
+     * @param totalWorkers given workers, working in the building
+     * @return cost of potential charges result of all workers in the building
+     */
     public int calcChargesMonthlyGastroPerWorker(int totalWorkers){
         if (totalWorkers<1){
             throw new IllegalArgumentException("Arguments have to be greater than 0!");
@@ -83,7 +128,9 @@ public class CostExploration {
         return totalWorkers * getChargesMonthlyGastroPerWorker();
     }
 
-    //Getters
+    /**
+     * @getters variable holders
+     */
     public int getChargesMonthlyPerToilet() {
         return chargesMonthlyPerToilet;
     }

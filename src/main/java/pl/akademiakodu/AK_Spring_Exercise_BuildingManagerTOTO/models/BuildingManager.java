@@ -2,9 +2,16 @@ package pl.akademiakodu.AK_Spring_Exercise_BuildingManagerTOTO.models;
 
 import org.springframework.stereotype.Service;
 
+/**
+ * general calculator of potential building. Show results are listed below as well as cost of building and later
+ * exploration. Helps comparison to existing costs of e.g: lease to potential own building.
+ */
 @Service
 public class BuildingManager {
 
+    /**
+     * variable holder, example of real needs, taxes
+     */
     private int installationSpace = 4;
     private int toiletsSpace = 30;
     private int straitsSpace = 20;
@@ -21,7 +28,11 @@ public class BuildingManager {
     private int servicesNeedPerOfficeLevel = 5;
     private int gastroNeedPerLevel = 7;
 
-
+    /**
+     * @param width given of building
+     * @param length given of building
+     * @return area of one level on the building
+     */
     public int calculateLevelArea(int width, int length){
         if (width<1 || length<1){
             throw new IllegalArgumentException("Arguments have to be greater than 0!");
@@ -29,6 +40,13 @@ public class BuildingManager {
         return width * length;
     }
 
+    /**
+     * @param levelArea of the building
+     * @param elevators in the building
+     * @param toilets in the building
+     * @param straits in the building
+     * @return remaining space needed to one room, per all rooms
+     */
     public int roomCalculator(int levelArea, int elevators, int toilets, int straits){
         if (levelArea<1 || elevators<0 || toilets<1 || straits<0){
             throw new IllegalArgumentException("Arguments have to be greater than 0!");
@@ -41,6 +59,11 @@ public class BuildingManager {
         return remainingSpace / getRoomSpace();
     }
 
+    /**
+     * @param levelArea of the building
+     * @param floors in the building
+     * @return needed elevators
+     */
     public int needsElevator(int levelArea, int floors){
         if (floors==0){
             return 0;
@@ -51,6 +74,11 @@ public class BuildingManager {
         return (int)(((double)levelArea/10) * getElevatorNeedPerArea10() + ((double)floors*getElevatorNeedPerLevel()));
     }
 
+    /**
+     * @param levelArea of the building
+     * @param floors in the building
+     * @return needed straits
+     */
     public int needsStraits(int levelArea, int floors){
         if (floors==0){
             return 0;
@@ -62,6 +90,10 @@ public class BuildingManager {
         return straits > 0 ? straits : 1;
     }
 
+    /**
+     * @param floors in the building
+     * @return needed parking levels
+     */
     public int needsParkingLevel(int floors){
         if (floors<1){
             throw new IllegalArgumentException("Arguments have to be greater than 0!");
@@ -70,11 +102,22 @@ public class BuildingManager {
         return floors / getParkingNeedPerOfficeLevel();
     }
 
+    /**
+     * in this example office level are core of building as a office building, service levels are responsible of
+     * security, cleanliness, deposits, cloakrooms etc..
+     * @param officeLevel in the building
+     * @return needed service levels
+     */
     public int needsServiceLevel(int officeLevel){
         //todo implements
         return 0;
     }
 
+    /**
+     * almost in every office gastro is needed.
+     * @param floors in the building
+     * @return potential needed gastros
+     */
     public int needGastroLevel(int floors){
         if (floors<0){
             throw new IllegalArgumentException("Arguments have to be greater than 0!");
@@ -82,6 +125,10 @@ public class BuildingManager {
         return floors / getGastroNeedPerLevel();
     }
 
+    /**
+     * @param rooms in the building
+     * @return needed toilets
+     */
     public int needsToilets(int rooms){
         if (rooms<1){
             throw new IllegalArgumentException("Arguments have to be greater than 0!");
@@ -89,6 +136,10 @@ public class BuildingManager {
         return (int)(rooms * getToiletNeedPerRoom());
     }
 
+    /**
+     * @param rooms in the building
+     * @return potential worker maximum capacity accepted by given law
+     */
     public int potentialWorkers(int rooms){
         if (rooms<1){
             throw new IllegalArgumentException("Arguments have to be greater than 0!");
@@ -96,6 +147,12 @@ public class BuildingManager {
         return rooms * getWorkerAreaNeed();
     }
 
+    /**
+     * @param width on the building
+     * @param length on the building
+     * @param floors in the building
+     * @return total building area
+     */
     public int calcTotalBuildingArea(int width, int length, int floors){
         if (floors<0){
             throw new IllegalArgumentException("Arguments have to be greater than 0!");
@@ -106,6 +163,16 @@ public class BuildingManager {
         return calculateLevelArea(width, length) * floors;
     }
 
+    /**
+     * Calculate every cost connected on the potential building. Also inform of needed building maintains like: toilets,
+     * rooms, straits and elevators, specified levels: office, service, parking and gastro. Output information of potential
+     * workers capacity.
+     * @param width of the building
+     * @param length of the building
+     * @param floors in the building
+     * @param undergroundFloors in the building
+     * @return all potential building information
+     */
     public Building totalCostCalculator(int width, int length, int floors, int undergroundFloors){
         int levelArea = calculateLevelArea(width, length);
         Building building = new Building();
@@ -135,12 +202,19 @@ public class BuildingManager {
         return building;
     }
 
+    /**
+     * @param floors in the building
+     * @param undergroundFloors in the building
+     * @return total floors in the building
+     */
     public int totalFlors(int floors, int undergroundFloors){
         return floors + undergroundFloors;
     }
 
 
-    //getters
+    /**
+     * @getters variable holders
+     */
     public int getInstallationSpace() {
         return installationSpace;
     }

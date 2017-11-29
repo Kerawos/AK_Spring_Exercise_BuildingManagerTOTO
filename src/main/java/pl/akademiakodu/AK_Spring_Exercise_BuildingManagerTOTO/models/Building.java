@@ -2,6 +2,9 @@ package pl.akademiakodu.AK_Spring_Exercise_BuildingManagerTOTO.models;
 
 import java.math.BigInteger;
 
+/**
+ * A building class that represents the data that will be stored from the data source.
+ */
 public class Building {
 
     private int width;
@@ -27,6 +30,9 @@ public class Building {
     public Building() {
     }
 
+    /**
+     * Creates an instance of building.
+     */
     public Building(int width, int length, int floors, int undergroundFloors, int totalBuildingArea, int officeLevel,
                     int parkingLevel, int serviceLevel, int gastroLevel, int elevator, int rooms, int straits,
                     int toilets, int potentialWorkers, BigInteger potentialBuildingCost, int potentialMonthlyCharges) {
