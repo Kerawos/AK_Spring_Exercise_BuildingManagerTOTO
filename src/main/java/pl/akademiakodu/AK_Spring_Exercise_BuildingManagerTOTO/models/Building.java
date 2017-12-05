@@ -1,5 +1,8 @@
 package pl.akademiakodu.AK_Spring_Exercise_BuildingManagerTOTO.models;
 
+/**
+ * Imports section
+ */
 import java.math.BigInteger;
 
 /**
@@ -7,6 +10,9 @@ import java.math.BigInteger;
  */
 public class Building {
 
+    /**
+     * Variables declarations
+     */
     private int width;
     private int length;
     private int floors;
@@ -27,6 +33,9 @@ public class Building {
     private BigInteger potentialBuildingCost;
     private int potentialMonthlyCharges;
 
+    /**
+     * Constructors
+     */
     public Building() {
     }
 
@@ -54,6 +63,9 @@ public class Building {
         this.potentialMonthlyCharges = potentialMonthlyCharges;
     }
 
+    /**
+     * Getters and setters section
+     */
     public int getWidth() {
         return width;
     }

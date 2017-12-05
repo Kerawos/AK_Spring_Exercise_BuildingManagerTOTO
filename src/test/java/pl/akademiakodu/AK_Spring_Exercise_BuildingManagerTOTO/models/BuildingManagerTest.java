@@ -1,8 +1,12 @@
 package pl.akademiakodu.AK_Spring_Exercise_BuildingManagerTOTO.models;
 
+/**
+ * Imports section
+ */
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import pl.akademiakodu.AK_Spring_Exercise_BuildingManagerTOTO.models.services.BuildingManager;
 
 import java.math.BigInteger;
 
@@ -12,13 +16,11 @@ public class BuildingManagerTest {
 
     private static BuildingManager buildingManager;
 
-    @BeforeClass
-    public static void start() {
+    @BeforeClass public static void start() {
         buildingManager = new BuildingManager();
     }
 
-    @AfterClass
-    public static void stop() throws Exception {
+    @AfterClass public static void stop() throws Exception {
         buildingManager = null;
     }
 
