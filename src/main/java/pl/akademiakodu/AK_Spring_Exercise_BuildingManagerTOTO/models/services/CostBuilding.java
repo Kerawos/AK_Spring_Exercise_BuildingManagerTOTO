@@ -109,7 +109,7 @@ public class CostBuilding {
     }
 
     /**
-     *  Methods calculating cost of the roof based on given area level 
+     *  Methods calculating cost of the roof based on given area level
      * @param areaLevel given one level area of building
      * @return cost of last floor ceiling and roof
      */
